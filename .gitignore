@@ -1,0 +1,13 @@
+.bsp
+.idea
+target
+null
+spark-warehouse
+project/target/
+/output
+*.class
+*.log
+*.iml
+.history
+.cache
+.lib

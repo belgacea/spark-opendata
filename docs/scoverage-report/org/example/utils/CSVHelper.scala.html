@@ -1,0 +1,557 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          org\example\utils\CSVHelper.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>package org.example.utils
+</span>2 <span style=''>
+</span>3 <span style=''>import org.apache.spark.sql.functions.col
+</span>4 <span style=''>import org.apache.spark.sql.types.StructType
+</span>5 <span style=''>import org.apache.spark.sql.{DataFrame, SaveMode}
+</span>6 <span style=''>
+</span>7 <span style=''>/**
+</span>8 <span style=''> * Comma Separated Values helper functions for batch processing
+</span>9 <span style=''> *
+</span>10 <span style=''> * @group csv
+</span>11 <span style=''> * @author belgacea
+</span>12 <span style=''> */
+</span>13 <span style=''>trait CSVHelper extends FileHelper {
+</span>14 <span style=''>
+</span>15 <span style=''>  /**
+</span>16 <span style=''>   * Read CSV file using a specified schema
+</span>17 <span style=''>   *
+</span>18 <span style=''>   * @group csv
+</span>19 <span style=''>   * @param path      HDFS path of the csv file
+</span>20 <span style=''>   * @param schema    Schema of the csv file
+</span>21 <span style=''>   * @param delimiter Delimiter option (Default : &quot;,&quot;)
+</span>22 <span style=''>   * @param header    Header option (Default : &quot;true&quot;)
+</span>23 <span style=''>   * @return Csv file as [[DataFrame]]
+</span>24 <span style=''>   */
+</span>25 <span style=''>  def loadCSV(path: String,
+</span>26 <span style=''>              schema: Option[StructType] = None,
+</span>27 <span style=''>              delimiter: Option[String] = None,
+</span>28 <span style=''>              header: Boolean = true,
+</span>29 <span style=''>              timestampFormat: String = &quot;yyyy/MM/dd HH:mm:ss&quot;): DataFrame = {
+</span>30 <span style=''>    val separator = delimiter match {
+</span>31 <span style=''>      case Some(d) =&gt; d
+</span>32 <span style=''>      case None =&gt; csvDelimiter
+</span>33 <span style=''>    }
+</span>34 <span style=''>    val readCSV = </span><span style='background: #AEF1AE'>spark.read.format(&quot;csv&quot;)
+</span>35 <span style=''></span><span style='background: #AEF1AE'>      .option(&quot;sep&quot;, separator)
+</span>36 <span style=''></span><span style='background: #AEF1AE'>      .option(&quot;header&quot;, header)
+</span>37 <span style=''></span><span style='background: #AEF1AE'>      .option(&quot;charset&quot;, &quot;UTF8&quot;)
+</span>38 <span style=''></span><span style='background: #AEF1AE'>      .option(&quot;timestampFormat&quot;, timestampFormat)</span><span style=''>
+</span>39 <span style=''>    val dataFrameReader = schema match {
+</span>40 <span style=''>      case Some(s) =&gt; </span><span style='background: #AEF1AE'>readCSV.schema(s)</span><span style=''>
+</span>41 <span style=''>      case None =&gt; </span><span style='background: #F0ADAD'>readCSV.option(&quot;inferSchema&quot;, value = true)</span><span style=''> // Not available if headers contains quotes
+</span>42 <span style=''>    }
+</span>43 <span style=''>    </span><span style='background: #AEF1AE'>dataFrameReader.load(path)</span><span style=''>
+</span>44 <span style=''>  }
+</span>45 <span style=''>
+</span>46 <span style=''>  /**
+</span>47 <span style=''>   * Write [[DataFrame]] to one CSV file
+</span>48 <span style=''>   *
+</span>49 <span style=''>   * //    * @note WARNING : This function uses 1 partition to write a single CSV file.
+</span>50 <span style=''>   * //    *       It may have a serious impact on the overall efficiency of the application from which it is called.
+</span>51 <span style=''>   *
+</span>52 <span style=''>   * @note When HDFS extraction is enabled, headers are disabled and added after the transfer
+</span>53 <span style=''>   * @group csv
+</span>54 <span style=''>   * @param dataframe [[DataFrame]] to write
+</span>55 <span style=''>   * @param path      Output file path
+</span>56 <span style=''>   * @param header    Whether to write headers or not in csv output ( Default : true )
+</span>57 <span style=''>   */ // TODO custom delimiter ?
+</span>58 <span style=''>  def writeToCSV(dataframe: DataFrame, path: String,
+</span>59 <span style=''>                 partitionBy: Option[Array[String]] = None,
+</span>60 <span style=''>                 header: Boolean = true): Unit = {
+</span>61 <span style=''>    </span><span style='background: #AEF1AE'>require(path.nonEmpty, </span><span style='background: #F0ADAD'>&quot;Undefined output path. Can't write csv file if path is empty.&quot;</span><span style='background: #AEF1AE'>)</span><span style=''>
+</span>62 <span style=''>    if (explainExecutionPlan) </span><span style='background: #F0ADAD'>dataframe.explain(extended = true)</span><span style=''>
+</span>63 <span style=''>    val output = partitionBy match {
+</span>64 <span style=''>        case Some(partitions) =&gt; </span><span style='background: #F0ADAD'>dataframe
+</span>65 <span style=''></span><span style='background: #F0ADAD'>          .repartition(partitions.map(col): _*)
+</span>66 <span style=''></span><span style='background: #F0ADAD'>          .write
+</span>67 <span style=''></span><span style='background: #F0ADAD'>          .partitionBy(partitions: _*)</span><span style=''>
+</span>68 <span style=''>        case None =&gt; </span><span style='background: #AEF1AE'>dataframe
+</span>69 <span style=''></span><span style='background: #AEF1AE'>          .coalesce(1)
+</span>70 <span style=''></span><span style='background: #AEF1AE'>          .write</span><span style=''>
+</span>71 <span style=''>    }
+</span>72 <span style=''>    </span><span style='background: #AEF1AE'>output
+</span>73 <span style=''></span><span style='background: #AEF1AE'>      .mode(SaveMode.Overwrite)
+</span>74 <span style=''></span><span style='background: #AEF1AE'>      .option(&quot;header&quot;, header.toString)
+</span>75 <span style=''></span><span style='background: #AEF1AE'>      .option(&quot;charset&quot;, csvCharsetEncoding)
+</span>76 <span style=''></span><span style='background: #AEF1AE'>      .csv(path)</span><span style=''>
+</span>77 <span style=''>  }
+</span>78 <span style=''>
+</span>79 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          38
+        </td>
+        <td>
+          187
+        </td>
+        <td>
+          1023
+          -
+          1198
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.DataFrameReader.option
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          CSVHelper.this.spark.read.format(&quot;csv&quot;).option(&quot;sep&quot;, separator).option(&quot;header&quot;, header).option(&quot;charset&quot;, &quot;UTF8&quot;).option(&quot;timestampFormat&quot;, timestampFormat)
+        </td>
+      </tr><tr>
+        <td>
+          40
+        </td>
+        <td>
+          188
+        </td>
+        <td>
+          1264
+          -
+          1281
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.DataFrameReader.schema
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          readCSV.schema(s)
+        </td>
+      </tr><tr>
+        <td>
+          41
+        </td>
+        <td>
+          189
+        </td>
+        <td>
+          1302
+          -
+          1345
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.DataFrameReader.option
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          readCSV.option(&quot;inferSchema&quot;, true)
+        </td>
+      </tr><tr>
+        <td>
+          43
+        </td>
+        <td>
+          190
+        </td>
+        <td>
+          1402
+          -
+          1428
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.DataFrameReader.load
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          dataFrameReader.load(path)
+        </td>
+      </tr><tr>
+        <td>
+          61
+        </td>
+        <td>
+          191
+        </td>
+        <td>
+          2205
+          -
+          2218
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          scala.collection.TraversableOnce.nonEmpty
+        </td>
+        <td>
+          org.example.utils.csvhelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          scala.Predef.augmentString(path).nonEmpty
+        </td>
+      </tr><tr>
+        <td>
+          61
+        </td>
+        <td>
+          193
+        </td>
+        <td>
+          2197
+          -
+          2284
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Predef.require
+        </td>
+        <td>
+          org.example.utils.csvhelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          scala.Predef.require(scala.Predef.augmentString(path).nonEmpty, &quot;Undefined output path. Can\'t write csv file if path is empty.&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          61
+        </td>
+        <td>
+          192
+        </td>
+        <td>
+          2220
+          -
+          2283
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;Undefined output path. Can\'t write csv file if path is empty.&quot;
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          194
+        </td>
+        <td>
+          2316
+          -
+          2350
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.Dataset.explain
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          dataframe.explain(true)
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          196
+        </td>
+        <td>
+          2290
+          -
+          2290
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          org.example.utils.csvhelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          195
+        </td>
+        <td>
+          2316
+          -
+          2350
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          org.apache.spark.sql.Dataset.explain
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          dataframe.explain(true)
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          197
+        </td>
+        <td>
+          2290
+          -
+          2290
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          org.example.utils.csvhelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          65
+        </td>
+        <td>
+          200
+        </td>
+        <td>
+          2457
+          -
+          2476
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          scala.collection.TraversableLike.map
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          scala.Predef.refArrayOps[String](partitions).map[org.apache.spark.sql.Column, Array[org.apache.spark.sql.Column]]({
+  ((colName: String) =&gt; org.apache.spark.sql.functions.col(colName))
+})(scala.this.Array.canBuildFrom[org.apache.spark.sql.Column]((ClassTag.apply[org.apache.spark.sql.Column](classOf[org.apache.spark.sql.Column]): scala.reflect.ClassTag[org.apache.spark.sql.Column])))
+        </td>
+      </tr><tr>
+        <td>
+          65
+        </td>
+        <td>
+          199
+        </td>
+        <td>
+          2471
+          -
+          2471
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          scala.Array.canBuildFrom
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          scala.this.Array.canBuildFrom[org.apache.spark.sql.Column]((ClassTag.apply[org.apache.spark.sql.Column](classOf[org.apache.spark.sql.Column]): scala.reflect.ClassTag[org.apache.spark.sql.Column]))
+        </td>
+      </tr><tr>
+        <td>
+          65
+        </td>
+        <td>
+          198
+        </td>
+        <td>
+          2472
+          -
+          2475
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.col
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          org.apache.spark.sql.functions.col(colName)
+        </td>
+      </tr><tr>
+        <td>
+          67
+        </td>
+        <td>
+          201
+        </td>
+        <td>
+          2423
+          -
+          2539
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.DataFrameWriter.partitionBy
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          dataframe.repartition((scala.Predef.refArrayOps[String](partitions).map[org.apache.spark.sql.Column, Array[org.apache.spark.sql.Column]]({
+  ((colName: String) =&gt; org.apache.spark.sql.functions.col(colName))
+})(scala.this.Array.canBuildFrom[org.apache.spark.sql.Column]((ClassTag.apply[org.apache.spark.sql.Column](classOf[org.apache.spark.sql.Column]): scala.reflect.ClassTag[org.apache.spark.sql.Column]))): _*)).write.partitionBy((partitions: _*))
+        </td>
+      </tr><tr>
+        <td>
+          69
+        </td>
+        <td>
+          202
+        </td>
+        <td>
+          2593
+          -
+          2594
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          org.example.utils.csvhelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          1
+        </td>
+      </tr><tr>
+        <td>
+          70
+        </td>
+        <td>
+          203
+        </td>
+        <td>
+          2562
+          -
+          2613
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.apache.spark.sql.Dataset.write
+        </td>
+        <td>
+          org.example.utils.csvhelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          dataframe.coalesce(1).write
+        </td>
+      </tr><tr>
+        <td>
+          76
+        </td>
+        <td>
+          204
+        </td>
+        <td>
+          2626
+          -
+          2771
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.DataFrameWriter.csv
+        </td>
+        <td>
+          org.example.utils.csvhelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          output.mode(Overwrite).option(&quot;header&quot;, header.toString()).option(&quot;charset&quot;, CSVHelper.this.csvCharsetEncoding).csv(path)
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

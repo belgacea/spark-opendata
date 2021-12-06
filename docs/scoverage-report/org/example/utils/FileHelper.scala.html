@@ -1,0 +1,158 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          org\example\utils\FileHelper.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>package org.example.utils
+</span>2 <span style=''>
+</span>3 <span style=''>import java.net.URLDecoder
+</span>4 <span style=''>
+</span>5 <span style=''>/**
+</span>6 <span style=''> * File helper functions
+</span>7 <span style=''> *
+</span>8 <span style=''> * @author belgacea
+</span>9 <span style=''> */
+</span>10 <span style=''>trait FileHelper extends ConfigurationHelper {
+</span>11 <span style=''>
+</span>12 <span style=''>  /** Filter unsafe URI character from an encoded string */
+</span>13 <span style=''>  def filterURIUnsafeCharacter(string: String): String = {
+</span>14 <span style=''>    val allowedCharacter = </span><span style='background: #AEF1AE'>&quot;[A-Za-z0-9._~-]&quot;</span><span style=''>
+</span>15 <span style=''>    </span><span style='background: #AEF1AE'>URLDecoder
+</span>16 <span style=''></span><span style='background: #AEF1AE'>      .decode(string, &quot;ASCII&quot;)
+</span>17 <span style=''></span><span style='background: #AEF1AE'>      .filter(_.toString.matches(allowedCharacter))</span><span style=''>
+</span>18 <span style=''>  }
+</span>19 <span style=''>
+</span>20 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          14
+        </td>
+        <td>
+          219
+        </td>
+        <td>
+          318
+          -
+          335
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;[A-Za-z0-9._~-]&quot;
+        </td>
+      </tr><tr>
+        <td>
+          16
+        </td>
+        <td>
+          220
+        </td>
+        <td>
+          341
+          -
+          383
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.net.URLDecoder.decode
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          java.net.URLDecoder.decode(string, &quot;ASCII&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          17
+        </td>
+        <td>
+          222
+        </td>
+        <td>
+          341
+          -
+          436
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.collection.TraversableLike.filter
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          scala.Predef.augmentString(java.net.URLDecoder.decode(string, &quot;ASCII&quot;)).filter(((x$1: Char) =&gt; x$1.toString().matches(allowedCharacter)))
+        </td>
+      </tr><tr>
+        <td>
+          17
+        </td>
+        <td>
+          221
+        </td>
+        <td>
+          399
+          -
+          435
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.matches
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          x$1.toString().matches(allowedCharacter)
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

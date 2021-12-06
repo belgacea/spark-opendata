@@ -1,0 +1,957 @@
+<scoverage 
+statement-count="255" statements-invoked="216" statement-rate="84.71" branch-rate="88.89" version="1.0" timestamp="1638755090511">
+    <packages>
+        <package name="org.example.batch" statement-count="100" statements-invoked="71" statement-rate="71.00">
+            <classes>
+                <class 
+                name="org.example.batch.BatchToolBox" filename="org\example\batch\batch.scala" statement-count="71" statements-invoked="71" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="org.example.batch/BatchToolBox/getUnknownStreet" statement-count="14" statements-invoked="14" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getUnknownStreet" start="4063" end="4076" line="87" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getUnknownStreet" start="4124" end="4154" line="88" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getUnknownStreet" start="4006" end="4016" line="86" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getUnknownStreet" start="4297" end="4313" line="93" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getUnknownStreet" start="3926" end="4361" line="90" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getUnknownStreet" start="4055" end="4061" line="87" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getUnknownStreet" start="4140" end="4154" line="88" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getUnknownStreet" start="4268" end="4284" line="92" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getUnknownStreet" start="3969" end="3983" line="85" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getUnknownStreet" start="3957" end="3967" line="85" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getUnknownStreet" start="4231" end="4255" line="91" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getUnknownStreet" start="4018" end="4032" line="86" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getUnknownStreet" start="4326" end="4349" line="94" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getUnknownStreet" start="4128" end="4134" line="88" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="org.example.batch/BatchToolBox/maxVisitorByStreet" statement-count="16" statements-invoked="16" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="maxVisitorByStreet" start="3390" end="3403" line="69" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="maxVisitorByStreet" start="3178" end="3227" line="66" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="maxVisitorByStreet" start="3151" end="3522" line="71" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="maxVisitorByStreet" start="3333" end="3343" line="68" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="maxVisitorByStreet" start="3131" end="3134" line="64" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="maxVisitorByStreet" start="3140" end="3143" line="64" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="maxVisitorByStreet" start="3382" end="3388" line="69" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="maxVisitorByStreet" start="3140" end="3143" line="64" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="maxVisitorByStreet" start="3474" end="3521" line="71" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="maxVisitorByStreet" start="3204" end="3227" line="66" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="maxVisitorByStreet" start="3296" end="3310" line="67" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="maxVisitorByStreet" start="3284" end="3294" line="67" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="maxVisitorByStreet" start="3131" end="3134" line="64" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="maxVisitorByStreet" start="3345" end="3359" line="68" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="maxVisitorByStreet" start="3452" end="3458" line="70" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="maxVisitorByStreet" start="3182" end="3198" line="66" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="org.example.batch/BatchToolBox/&lt;none&gt;" statement-count="24" statements-invoked="24" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="2021" end="2036" line="31" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="1594" end="1594" line="27" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="1858" end="1859" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="2004" end="2054" line="31" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="1676" end="1676" line="28" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="1926" end="1942" line="30" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="1826" end="1842" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="1958" end="1959" line="30" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="1945" end="1956" line="30" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="1845" end="1856" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="2025" end="2035" line="31" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="1581" end="1581" line="27" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="2038" end="2053" line="31" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="1930" end="1941" line="30" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="1664" end="1664" line="28" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="1830" end="1841" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="1920" end="1943" line="30" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="1688" end="1688" line="28" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="1905" end="1960" line="30" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="629" end="1558" line="25" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="1820" end="1843" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="1805" end="1860" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="2042" end="2052" line="31" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="&lt;none&gt;" start="1656" end="1656" line="28" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="org.example.batch/BatchToolBox/getStreetColExpr" statement-count="17" statements-invoked="17" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getStreetColExpr" start="2418" end="2462" line="44" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getStreetColExpr" start="2569" end="2736" line="50" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getStreetColExpr" start="2628" end="2635" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getStreetColExpr" start="2317" end="2361" line="41" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getStreetColExpr" start="2659" end="2670" line="49" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getStreetColExpr" start="2574" end="2636" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getStreetColExpr" start="2339" end="2361" line="41" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getStreetColExpr" start="2721" end="2735" line="51" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getStreetColExpr" start="2440" end="2462" line="44" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getStreetColExpr" start="2312" end="2762" line="43" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getStreetColExpr" start="2611" end="2622" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getStreetColExpr" start="2578" end="2589" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getStreetColExpr" start="2413" end="2751" line="47" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getStreetColExpr" start="2605" end="2636" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getStreetColExpr" start="2353" end="2360" line="41" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getStreetColExpr" start="2454" end="2461" line="44" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="BatchToolBox" class-type="Class" full-class-name="org.example.batch.BatchToolBox" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\batch.scala" method="getStreetColExpr" start="2655" end="2671" line="49" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="org.example.batch.ERPMaxVisitorByStreet2CSV" filename="org\example\batch\ERPMaxVisitorByStreet2CSV.scala" statement-count="16" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                    <methods>
+                        <method 
+                        name="org.example.batch/ERPMaxVisitorByStreet2CSV/main" statement-count="16" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="org.example.batch" class="ERPMaxVisitorByStreet2CSV" class-type="Object" full-class-name="org.example.batch.ERPMaxVisitorByStreet2CSV" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\ERPMaxVisitorByStreet2CSV.scala" method="main" start="676" end="693" line="21" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="ERPMaxVisitorByStreet2CSV" class-type="Object" full-class-name="org.example.batch.ERPMaxVisitorByStreet2CSV" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\ERPMaxVisitorByStreet2CSV.scala" method="main" start="483" end="498" line="18" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="ERPMaxVisitorByStreet2CSV" class-type="Object" full-class-name="org.example.batch.ERPMaxVisitorByStreet2CSV" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\ERPMaxVisitorByStreet2CSV.scala" method="main" start="744" end="744" line="24" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="ERPMaxVisitorByStreet2CSV" class-type="Object" full-class-name="org.example.batch.ERPMaxVisitorByStreet2CSV" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\ERPMaxVisitorByStreet2CSV.scala" method="main" start="788" end="794" line="26" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="ERPMaxVisitorByStreet2CSV" class-type="Object" full-class-name="org.example.batch.ERPMaxVisitorByStreet2CSV" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\ERPMaxVisitorByStreet2CSV.scala" method="main" start="466" end="466" line="18" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="ERPMaxVisitorByStreet2CSV" class-type="Object" full-class-name="org.example.batch.ERPMaxVisitorByStreet2CSV" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\ERPMaxVisitorByStreet2CSV.scala" method="main" start="390" end="397" line="15" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="ERPMaxVisitorByStreet2CSV" class-type="Object" full-class-name="org.example.batch.ERPMaxVisitorByStreet2CSV" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\ERPMaxVisitorByStreet2CSV.scala" method="main" start="676" end="683" line="21" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="ERPMaxVisitorByStreet2CSV" class-type="Object" full-class-name="org.example.batch.ERPMaxVisitorByStreet2CSV" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\ERPMaxVisitorByStreet2CSV.scala" method="main" start="488" end="497" line="18" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="ERPMaxVisitorByStreet2CSV" class-type="Object" full-class-name="org.example.batch.ERPMaxVisitorByStreet2CSV" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\ERPMaxVisitorByStreet2CSV.scala" method="main" start="772" end="779" line="24" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="ERPMaxVisitorByStreet2CSV" class-type="Object" full-class-name="org.example.batch.ERPMaxVisitorByStreet2CSV" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\ERPMaxVisitorByStreet2CSV.scala" method="main" start="466" end="466" line="18" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="ERPMaxVisitorByStreet2CSV" class-type="Object" full-class-name="org.example.batch.ERPMaxVisitorByStreet2CSV" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\ERPMaxVisitorByStreet2CSV.scala" method="main" start="736" end="780" line="24" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="ERPMaxVisitorByStreet2CSV" class-type="Object" full-class-name="org.example.batch.ERPMaxVisitorByStreet2CSV" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\ERPMaxVisitorByStreet2CSV.scala" method="main" start="744" end="744" line="24" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="ERPMaxVisitorByStreet2CSV" class-type="Object" full-class-name="org.example.batch.ERPMaxVisitorByStreet2CSV" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\ERPMaxVisitorByStreet2CSV.scala" method="main" start="466" end="466" line="18" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="ERPMaxVisitorByStreet2CSV" class-type="Object" full-class-name="org.example.batch.ERPMaxVisitorByStreet2CSV" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\ERPMaxVisitorByStreet2CSV.scala" method="main" start="458" end="499" line="18" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="ERPMaxVisitorByStreet2CSV" class-type="Object" full-class-name="org.example.batch.ERPMaxVisitorByStreet2CSV" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\ERPMaxVisitorByStreet2CSV.scala" method="main" start="474" end="481" line="18" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="ERPMaxVisitorByStreet2CSV" class-type="Object" full-class-name="org.example.batch.ERPMaxVisitorByStreet2CSV" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\ERPMaxVisitorByStreet2CSV.scala" method="main" start="622" end="694" line="21" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="org.example.batch.CSV2Parquet" filename="org\example\batch\CSV2Parquet.scala" statement-count="13" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                    <methods>
+                        <method 
+                        name="org.example.batch/CSV2Parquet/main" statement-count="13" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="org.example.batch" class="CSV2Parquet" class-type="Object" full-class-name="org.example.batch.CSV2Parquet" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\CSV2Parquet.scala" method="main" start="436" end="477" line="18" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="CSV2Parquet" class-type="Object" full-class-name="org.example.batch.CSV2Parquet" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\CSV2Parquet.scala" method="main" start="599" end="612" line="21" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="CSV2Parquet" class-type="Object" full-class-name="org.example.batch.CSV2Parquet" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\CSV2Parquet.scala" method="main" start="452" end="459" line="18" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="CSV2Parquet" class-type="Object" full-class-name="org.example.batch.CSV2Parquet" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\CSV2Parquet.scala" method="main" start="444" end="444" line="18" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="CSV2Parquet" class-type="Object" full-class-name="org.example.batch.CSV2Parquet" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\CSV2Parquet.scala" method="main" start="461" end="476" line="18" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="CSV2Parquet" class-type="Object" full-class-name="org.example.batch.CSV2Parquet" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\CSV2Parquet.scala" method="main" start="621" end="627" line="23" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="CSV2Parquet" class-type="Object" full-class-name="org.example.batch.CSV2Parquet" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\CSV2Parquet.scala" method="main" start="444" end="444" line="18" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="CSV2Parquet" class-type="Object" full-class-name="org.example.batch.CSV2Parquet" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\CSV2Parquet.scala" method="main" start="605" end="611" line="21" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="CSV2Parquet" class-type="Object" full-class-name="org.example.batch.CSV2Parquet" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\CSV2Parquet.scala" method="main" start="368" end="375" line="15" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="CSV2Parquet" class-type="Object" full-class-name="org.example.batch.CSV2Parquet" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\CSV2Parquet.scala" method="main" start="590" end="597" line="21" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="CSV2Parquet" class-type="Object" full-class-name="org.example.batch.CSV2Parquet" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\CSV2Parquet.scala" method="main" start="466" end="475" line="18" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="CSV2Parquet" class-type="Object" full-class-name="org.example.batch.CSV2Parquet" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\CSV2Parquet.scala" method="main" start="554" end="613" line="21" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.batch" class="CSV2Parquet" class-type="Object" full-class-name="org.example.batch.CSV2Parquet" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\batch\CSV2Parquet.scala" method="main" start="444" end="444" line="18" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+        <package name="org.example.types" statement-count="86" statements-invoked="86" statement-rate="100.00">
+            <classes>
+                <class 
+                name="org.example.types.package" filename="org\example\types\types.scala" statement-count="67" statements-invoked="67" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="org.example.types/package/&lt;none&gt;" statement-count="67" statements-invoked="67" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="447" end="451" line="20" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="532" end="542" line="22" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="759" end="759" line="27" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="910" end="914" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="621" end="634" line="24" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="662" end="702" line="25" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="293" end="293" line="18" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="383" end="393" line="19" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="279" end="283" line="17" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="849" end="857" line="28" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="609" end="609" line="24" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="221" end="923" line="16" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="745" end="749" line="26" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="473" end="479" line="21" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="507" end="549" line="22" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="352" end="400" line="19" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="305" end="324" line="18" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="873" end="915" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="829" end="847" line="28" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="733" end="743" line="26" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="493" end="497" line="21" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="583" end="593" line="23" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="235" end="284" line="17" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="352" end="352" line="19" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="674" end="683" line="25" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="711" end="750" line="26" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="817" end="817" line="28" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="898" end="908" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="662" end="662" line="25" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="803" end="807" line="27" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="338" end="342" line="18" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="434" end="445" line="20" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="519" end="530" line="22" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="558" end="600" line="23" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="409" end="452" line="20" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="364" end="381" line="19" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="267" end="277" line="17" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="507" end="507" line="22" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="648" end="652" line="24" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="885" end="896" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="544" end="548" line="22" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="759" end="808" line="27" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="636" end="646" line="24" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="873" end="873" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="293" end="343" line="18" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="409" end="409" line="20" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="247" end="265" line="17" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="723" end="731" line="26" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="204" end="928" line="15" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="711" end="711" line="26" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="859" end="863" line="28" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="570" end="581" line="23" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="395" end="399" line="19" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="609" end="653" line="24" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="481" end="491" line="21" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="235" end="235" line="17" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="793" end="801" line="27" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="461" end="498" line="21" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="326" end="336" line="18" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="558" end="558" line="23" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="697" end="701" line="25" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="421" end="432" line="20" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="595" end="599" line="23" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="817" end="864" line="28" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="461" end="461" line="21" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="771" end="791" line="27" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="package" class-type="Object" full-class-name="org.example.types.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\types.scala" method="&lt;none&gt;" start="685" end="695" line="25" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="org.example.types.SparkApp" filename="org\example\types\SparkApp.scala" statement-count="19" statements-invoked="19" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="org.example.types/SparkApp/&lt;none&gt;" statement-count="4" statements-invoked="4" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="&lt;none&gt;" start="333" end="360" line="14" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="&lt;none&gt;" start="587" end="602" line="20" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="&lt;none&gt;" start="333" end="387" line="14" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="&lt;none&gt;" start="371" end="386" line="14" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="org.example.types/SparkApp/start" statement-count="7" statements-invoked="7" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="start" start="683" end="732" line="26" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="start" start="731" end="732" line="26" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="start" start="702" end="717" line="26" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="start" start="717" end="731" line="26" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="start" start="685" end="695" line="26" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="start" start="695" end="702" line="26" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="start" start="674" end="733" line="26" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="org.example.types/SparkApp/stop" statement-count="8" statements-invoked="8" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="stop" start="1029" end="1041" line="35" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="stop" start="974" end="992" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="stop" start="992" end="999" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="stop" start="1012" end="1022" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="stop" start="963" end="1023" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="stop" start="854" end="895" line="33" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="stop" start="999" end="1004" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.types" class="SparkApp" class-type="Class" full-class-name="org.example.types.SparkApp" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\types\SparkApp.scala" method="stop" start="972" end="1022" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+        <package name="org.example.utils" statement-count="69" statements-invoked="59" statement-rate="85.51">
+            <classes>
+                <class 
+                name="org.example.utils.ParquetHelper" filename="org\example\utils\ParquetHelper.scala" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="org.example.utils/ParquetHelper/writeToParquetBy" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.utils" class="ParquetHelper" class-type="Trait" full-class-name="org.example.utils.ParquetHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\ParquetHelper.scala" method="writeToParquetBy" start="309" end="415" line="17" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="org.example.utils.ConfigurationHelper" filename="org\example\utils\ConfigurationHelper.scala" statement-count="14" statements-invoked="14" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="org.example.utils/ConfigurationHelper/getConfigPropArray" statement-count="6" statements-invoked="6" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.utils" class="ConfigurationHelper" class-type="Trait" full-class-name="org.example.utils.ConfigurationHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\ConfigurationHelper.scala" method="getConfigPropArray" start="3303" end="3310" line="90" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="ConfigurationHelper" class-type="Trait" full-class-name="org.example.utils.ConfigurationHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\ConfigurationHelper.scala" method="getConfigPropArray" start="3181" end="3211" line="88" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="ConfigurationHelper" class-type="Trait" full-class-name="org.example.utils.ConfigurationHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\ConfigurationHelper.scala" method="getConfigPropArray" start="3303" end="3310" line="90" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="ConfigurationHelper" class-type="Trait" full-class-name="org.example.utils.ConfigurationHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\ConfigurationHelper.scala" method="getConfigPropArray" start="3290" end="3297" line="90" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="ConfigurationHelper" class-type="Trait" full-class-name="org.example.utils.ConfigurationHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\ConfigurationHelper.scala" method="getConfigPropArray" start="3181" end="3211" line="88" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="ConfigurationHelper" class-type="Trait" full-class-name="org.example.utils.ConfigurationHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\ConfigurationHelper.scala" method="getConfigPropArray" start="3272" end="3288" line="90" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="org.example.utils/ConfigurationHelper/getConfigProp" statement-count="8" statements-invoked="8" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.utils" class="ConfigurationHelper" class-type="Trait" full-class-name="org.example.utils.ConfigurationHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\ConfigurationHelper.scala" method="getConfigProp" start="2739" end="2752" line="74" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="ConfigurationHelper" class-type="Trait" full-class-name="org.example.utils.ConfigurationHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\ConfigurationHelper.scala" method="getConfigProp" start="2731" end="2791" line="74" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="ConfigurationHelper" class-type="Trait" full-class-name="org.example.utils.ConfigurationHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\ConfigurationHelper.scala" method="getConfigProp" start="2312" end="2325" line="61" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="ConfigurationHelper" class-type="Trait" full-class-name="org.example.utils.ConfigurationHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\ConfigurationHelper.scala" method="getConfigProp" start="2370" end="2395" line="62" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="ConfigurationHelper" class-type="Trait" full-class-name="org.example.utils.ConfigurationHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\ConfigurationHelper.scala" method="getConfigProp" start="2304" end="2364" line="61" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="ConfigurationHelper" class-type="Trait" full-class-name="org.example.utils.ConfigurationHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\ConfigurationHelper.scala" method="getConfigProp" start="2754" end="2790" line="74" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="ConfigurationHelper" class-type="Trait" full-class-name="org.example.utils.ConfigurationHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\ConfigurationHelper.scala" method="getConfigProp" start="2797" end="2831" line="75" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="ConfigurationHelper" class-type="Trait" full-class-name="org.example.utils.ConfigurationHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\ConfigurationHelper.scala" method="getConfigProp" start="2327" end="2363" line="61" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="org.example.utils.package" filename="org\example\utils\utils.scala" statement-count="24" statements-invoked="22" statement-rate="91.67" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="org.example.utils/package/readConfigurationResources" statement-count="6" statements-invoked="6" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="readConfigurationResources" start="1166" end="1166" line="49" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="readConfigurationResources" start="1167" end="1176" line="49" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="readConfigurationResources" start="1148" end="1157" line="49" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="readConfigurationResources" start="1167" end="1176" line="49" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="readConfigurationResources" start="1128" end="1177" line="49" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="readConfigurationResources" start="1147" end="1147" line="49" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="org.example.utils/package/getConfig" statement-count="15" statements-invoked="13" statement-rate="86.67" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="getConfig" start="816" end="828" line="38" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="getConfig" start="558" end="601" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="getConfig" start="784" end="791" line="36" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="getConfig" start="580" end="601" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="getConfig" start="679" end="688" line="32" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="getConfig" start="473" end="498" line="26" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="getConfig" start="517" end="719" line="33" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="getConfig" start="678" end="700" line="32" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="getConfig" start="597" end="600" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="getConfig" start="763" end="774" line="35" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="getConfig" start="651" end="666" line="31" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="getConfig" start="816" end="828" line="38" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="getConfig" start="690" end="699" line="32" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="getConfig" start="517" end="719" line="33" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="getConfig" start="572" end="575" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="org.example.utils/package/getResources" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="getResources" start="965" end="985" line="44" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="getResources" start="950" end="986" line="44" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="package" class-type="Object" full-class-name="org.example.utils.package" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\utils.scala" method="getResources" start="964" end="964" line="44" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="org.example.utils.FileHelper" filename="org\example\utils\FileHelper.scala" statement-count="4" statements-invoked="4" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="org.example.utils/FileHelper/filterURIUnsafeCharacter" statement-count="4" statements-invoked="4" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.utils" class="FileHelper" class-type="Trait" full-class-name="org.example.utils.FileHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\FileHelper.scala" method="filterURIUnsafeCharacter" start="341" end="383" line="16" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="FileHelper" class-type="Trait" full-class-name="org.example.utils.FileHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\FileHelper.scala" method="filterURIUnsafeCharacter" start="318" end="335" line="14" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="FileHelper" class-type="Trait" full-class-name="org.example.utils.FileHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\FileHelper.scala" method="filterURIUnsafeCharacter" start="341" end="436" line="17" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="FileHelper" class-type="Trait" full-class-name="org.example.utils.FileHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\FileHelper.scala" method="filterURIUnsafeCharacter" start="399" end="435" line="17" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="org.example.utils.PropertyHelper" filename="org\example\utils\PropertyHelper.scala" statement-count="4" statements-invoked="4" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="org.example.utils/PropertyHelper/properties" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.utils" class="PropertyHelper" class-type="Trait" full-class-name="org.example.utils.PropertyHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\PropertyHelper.scala" method="properties" start="907" end="914" line="23" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="org.example.utils/PropertyHelper/&lt;none&gt;" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.utils" class="PropertyHelper" class-type="Trait" full-class-name="org.example.utils.PropertyHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\PropertyHelper.scala" method="&lt;none&gt;" start="540" end="581" line="15" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="PropertyHelper" class-type="Trait" full-class-name="org.example.utils.PropertyHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\PropertyHelper.scala" method="&lt;none&gt;" start="395" end="428" line="13" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="PropertyHelper" class-type="Trait" full-class-name="org.example.utils.PropertyHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\PropertyHelper.scala" method="&lt;none&gt;" start="257" end="293" line="11" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="org.example.utils.TestHelper" filename="org\example\utils\TestHelper.scala" statement-count="4" statements-invoked="4" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="org.example.utils/TestHelper/&lt;none&gt;" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.utils" class="TestHelper" class-type="Trait" full-class-name="org.example.utils.TestHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\TestHelper.scala" method="&lt;none&gt;" start="214" end="229" line="11" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="TestHelper" class-type="Trait" full-class-name="org.example.utils.TestHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\TestHelper.scala" method="&lt;none&gt;" start="176" end="203" line="11" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="TestHelper" class-type="Trait" full-class-name="org.example.utils.TestHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\TestHelper.scala" method="&lt;none&gt;" start="176" end="230" line="11" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="org.example.utils/TestHelper/functionName" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.utils" class="TestHelper" class-type="Trait" full-class-name="org.example.utils.TestHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\TestHelper.scala" method="functionName" start="309" end="328" line="14" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="org.example.utils.CSVHelper" filename="org\example\utils\CSVHelper.scala" statement-count="18" statements-invoked="10" statement-rate="55.56" branch-rate="50.00">
+                    <methods>
+                        <method 
+                        name="org.example.utils/CSVHelper/writeToCSV" statement-count="14" statements-invoked="7" statement-rate="50.00" branch-rate="50.00">
+                            <statements>
+                                <statement 
+                                package="org.example.utils" class="CSVHelper" class-type="Trait" full-class-name="org.example.utils.CSVHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\CSVHelper.scala" method="writeToCSV" start="2457" end="2476" line="65" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="CSVHelper" class-type="Trait" full-class-name="org.example.utils.CSVHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\CSVHelper.scala" method="writeToCSV" start="2205" end="2218" line="61" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="CSVHelper" class-type="Trait" full-class-name="org.example.utils.CSVHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\CSVHelper.scala" method="writeToCSV" start="2316" end="2350" line="62" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="CSVHelper" class-type="Trait" full-class-name="org.example.utils.CSVHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\CSVHelper.scala" method="writeToCSV" start="2197" end="2284" line="61" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="CSVHelper" class-type="Trait" full-class-name="org.example.utils.CSVHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\CSVHelper.scala" method="writeToCSV" start="2593" end="2594" line="69" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="CSVHelper" class-type="Trait" full-class-name="org.example.utils.CSVHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\CSVHelper.scala" method="writeToCSV" start="2290" end="2290" line="62" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="CSVHelper" class-type="Trait" full-class-name="org.example.utils.CSVHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\CSVHelper.scala" method="writeToCSV" start="2471" end="2471" line="65" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="CSVHelper" class-type="Trait" full-class-name="org.example.utils.CSVHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\CSVHelper.scala" method="writeToCSV" start="2472" end="2475" line="65" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="CSVHelper" class-type="Trait" full-class-name="org.example.utils.CSVHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\CSVHelper.scala" method="writeToCSV" start="2220" end="2283" line="61" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="CSVHelper" class-type="Trait" full-class-name="org.example.utils.CSVHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\CSVHelper.scala" method="writeToCSV" start="2423" end="2539" line="67" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="CSVHelper" class-type="Trait" full-class-name="org.example.utils.CSVHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\CSVHelper.scala" method="writeToCSV" start="2316" end="2350" line="62" branch="true" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="CSVHelper" class-type="Trait" full-class-name="org.example.utils.CSVHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\CSVHelper.scala" method="writeToCSV" start="2626" end="2771" line="76" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="CSVHelper" class-type="Trait" full-class-name="org.example.utils.CSVHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\CSVHelper.scala" method="writeToCSV" start="2562" end="2613" line="70" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="CSVHelper" class-type="Trait" full-class-name="org.example.utils.CSVHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\CSVHelper.scala" method="writeToCSV" start="2290" end="2290" line="62" branch="true" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="org.example.utils/CSVHelper/loadCSV" statement-count="4" statements-invoked="3" statement-rate="75.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="org.example.utils" class="CSVHelper" class-type="Trait" full-class-name="org.example.utils.CSVHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\CSVHelper.scala" method="loadCSV" start="1023" end="1198" line="38" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="CSVHelper" class-type="Trait" full-class-name="org.example.utils.CSVHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\CSVHelper.scala" method="loadCSV" start="1402" end="1428" line="43" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="CSVHelper" class-type="Trait" full-class-name="org.example.utils.CSVHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\CSVHelper.scala" method="loadCSV" start="1302" end="1345" line="41" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="org.example.utils" class="CSVHelper" class-type="Trait" full-class-name="org.example.utils.CSVHelper" source="C:\Users\Supremad\IdeaProjects\spark-opendata\src\main\scala\org\example\utils\CSVHelper.scala" method="loadCSV" start="1264" end="1281" line="40" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+    </packages>
+</scoverage>

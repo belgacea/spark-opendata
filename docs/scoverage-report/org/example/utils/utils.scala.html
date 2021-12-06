@@ -1,0 +1,681 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          org\example\utils\utils.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>package org.example
+</span>2 <span style=''>
+</span>3 <span style=''>import org.apache.log4j.{LogManager, Logger}
+</span>4 <span style=''>
+</span>5 <span style=''>import java.net.URL
+</span>6 <span style=''>import scala.io.Source
+</span>7 <span style=''>
+</span>8 <span style=''>/**
+</span>9 <span style=''> * Spark utils
+</span>10 <span style=''> *
+</span>11 <span style=''> * @author belgacea
+</span>12 <span style=''> * @group config
+</span>13 <span style=''> */
+</span>14 <span style=''>package object utils {
+</span>15 <span style=''>
+</span>16 <span style=''>  /** Root Logger */
+</span>17 <span style=''>  lazy val log: Logger = LogManager.getRootLogger
+</span>18 <span style=''>
+</span>19 <span style=''>  /**
+</span>20 <span style=''>   * Parse property file
+</span>21 <span style=''>   *
+</span>22 <span style=''>   * @param filePath Path to file
+</span>23 <span style=''>   * @return Properties
+</span>24 <span style=''>   */
+</span>25 <span style=''>  def getConfig(filePath: String): Array[(String, String)] = {
+</span>26 <span style=''>    val file = </span><span style='background: #AEF1AE'>Source.fromFile(filePath)</span><span style=''>
+</span>27 <span style=''>    try {
+</span>28 <span style=''>      </span><span style='background: #AEF1AE'>file.getLines()
+</span>29 <span style=''></span><span style='background: #AEF1AE'>        .filter(line =&gt; line.contains(&quot;=&quot;) &amp;&amp; !line.startsWith(&quot;#&quot;))
+</span>30 <span style=''></span><span style='background: #AEF1AE'>        .map { line =&gt;
+</span>31 <span style=''></span><span style='background: #AEF1AE'>          val tokens = line.split(&quot;=&quot;)
+</span>32 <span style=''></span><span style='background: #AEF1AE'>          (tokens(0), tokens(1))
+</span>33 <span style=''></span><span style='background: #AEF1AE'>        }.toArray</span><span style=''>
+</span>34 <span style=''>    } catch {
+</span>35 <span style=''>      case e: Exception =&gt; </span><span style='background: #F0ADAD'>log.warn(e)</span><span style=''>
+</span>36 <span style=''>        </span><span style='background: #F0ADAD'>Array()</span><span style=''>
+</span>37 <span style=''>    } finally {
+</span>38 <span style=''>      </span><span style='background: #AEF1AE'>file.close()</span><span style=''>
+</span>39 <span style=''>    }
+</span>40 <span style=''>  }
+</span>41 <span style=''>
+</span>42 <span style=''>  /** Get resources from local paths */
+</span>43 <span style=''>  def getResources(localPaths: List[String]): List[URL] = {
+</span>44 <span style=''>    </span><span style='background: #AEF1AE'>localPaths.map(getClass.getResource)</span><span style=''>
+</span>45 <span style=''>  }
+</span>46 <span style=''>
+</span>47 <span style=''>  /** Read configuration resources */
+</span>48 <span style=''>  def readConfigurationResources(configResources: List[URL]): List[(String, String)] = {
+</span>49 <span style=''>    </span><span style='background: #AEF1AE'>configResources.map(_.getPath).flatMap(getConfig)</span><span style=''>
+</span>50 <span style=''>  }
+</span>51 <span style=''>
+</span>52 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          26
+        </td>
+        <td>
+          232
+        </td>
+        <td>
+          473
+          -
+          498
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          scala.io.Source.fromFile
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          scala.io.Source.fromFile(filePath)(io.this.Codec.fallbackSystemCodec)
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          236
+        </td>
+        <td>
+          558
+          -
+          601
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Boolean.&amp;&amp;
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          line.contains(&quot;=&quot;).&amp;&amp;(line.startsWith(&quot;#&quot;).unary_!)
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          235
+        </td>
+        <td>
+          580
+          -
+          601
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          scala.Boolean.unary_!
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          line.startsWith(&quot;#&quot;).unary_!
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          234
+        </td>
+        <td>
+          597
+          -
+          600
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;#&quot;
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          233
+        </td>
+        <td>
+          572
+          -
+          575
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;=&quot;
+        </td>
+      </tr><tr>
+        <td>
+          31
+        </td>
+        <td>
+          237
+        </td>
+        <td>
+          651
+          -
+          666
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.split
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          line.split(&quot;=&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          32
+        </td>
+        <td>
+          238
+        </td>
+        <td>
+          679
+          -
+          688
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Array.apply
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          tokens.apply(0)
+        </td>
+      </tr><tr>
+        <td>
+          32
+        </td>
+        <td>
+          240
+        </td>
+        <td>
+          678
+          -
+          700
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Tuple2.apply
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          scala.Tuple2.apply[String, String](tokens.apply(0), tokens.apply(1))
+        </td>
+      </tr><tr>
+        <td>
+          32
+        </td>
+        <td>
+          239
+        </td>
+        <td>
+          690
+          -
+          699
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Array.apply
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          tokens.apply(1)
+        </td>
+      </tr><tr>
+        <td>
+          33
+        </td>
+        <td>
+          241
+        </td>
+        <td>
+          517
+          -
+          719
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          scala.collection.TraversableOnce.toArray
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          file.getLines().filter(((line: String) =&gt; line.contains(&quot;=&quot;).&amp;&amp;(line.startsWith(&quot;#&quot;).unary_!))).map[(String, String)](((line: String) =&gt; {
+  val tokens: Array[String] = line.split(&quot;=&quot;);
+  scala.Tuple2.apply[String, String](tokens.apply(0), tokens.apply(1))
+})).toArray[(String, String)]((ClassTag.apply[(String, String)](classOf[scala.Tuple2]): scala.reflect.ClassTag[(String, String)]))
+        </td>
+      </tr><tr>
+        <td>
+          33
+        </td>
+        <td>
+          242
+        </td>
+        <td>
+          517
+          -
+          719
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          scala.collection.TraversableOnce.toArray
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          file.getLines().filter(((line: String) =&gt; line.contains(&quot;=&quot;).&amp;&amp;(line.startsWith(&quot;#&quot;).unary_!))).map[(String, String)](((line: String) =&gt; {
+  val tokens: Array[String] = line.split(&quot;=&quot;);
+  scala.Tuple2.apply[String, String](tokens.apply(0), tokens.apply(1))
+})).toArray[(String, String)]((ClassTag.apply[(String, String)](classOf[scala.Tuple2]): scala.reflect.ClassTag[(String, String)]))
+        </td>
+      </tr><tr>
+        <td>
+          35
+        </td>
+        <td>
+          243
+        </td>
+        <td>
+          763
+          -
+          774
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.log4j.Category.warn
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          `package`.this.log.warn(e)
+        </td>
+      </tr><tr>
+        <td>
+          36
+        </td>
+        <td>
+          244
+        </td>
+        <td>
+          784
+          -
+          791
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          scala.Array.apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          scala.Array.apply[(String, String)]()((ClassTag.apply[(String, String)](classOf[scala.Tuple2]): scala.reflect.ClassTag[(String, String)]))
+        </td>
+      </tr><tr>
+        <td>
+          38
+        </td>
+        <td>
+          245
+        </td>
+        <td>
+          816
+          -
+          828
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.io.Source.close
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          file.close()
+        </td>
+      </tr><tr>
+        <td>
+          38
+        </td>
+        <td>
+          246
+        </td>
+        <td>
+          816
+          -
+          828
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          scala.io.Source.close
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          file.close()
+        </td>
+      </tr><tr>
+        <td>
+          44
+        </td>
+        <td>
+          247
+        </td>
+        <td>
+          965
+          -
+          985
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Class.getResource
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          eta$0$1.getResource(x$1)
+        </td>
+      </tr><tr>
+        <td>
+          44
+        </td>
+        <td>
+          249
+        </td>
+        <td>
+          950
+          -
+          986
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          scala.collection.immutable.List.map
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          localPaths.map[java.net.URL, List[java.net.URL]]({
+  &lt;synthetic&gt; val eta$0$1: Class[T] = `package`.this.getClass();
+  ((x$1: String) =&gt; eta$0$1.getResource(x$1))
+})(immutable.this.List.canBuildFrom[java.net.URL])
+        </td>
+      </tr><tr>
+        <td>
+          44
+        </td>
+        <td>
+          248
+        </td>
+        <td>
+          964
+          -
+          964
+        </td>
+        <td>
+          TypeApply
+        </td>
+        <td>
+          scala.collection.immutable.List.canBuildFrom
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          immutable.this.List.canBuildFrom[java.net.URL]
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          254
+        </td>
+        <td>
+          1166
+          -
+          1166
+        </td>
+        <td>
+          TypeApply
+        </td>
+        <td>
+          scala.collection.immutable.List.canBuildFrom
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          immutable.this.List.canBuildFrom[(String, String)]
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          253
+        </td>
+        <td>
+          1167
+          -
+          1176
+        </td>
+        <td>
+          ApplyImplicitView
+        </td>
+        <td>
+          scala.Predef.refArrayOps
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          scala.Predef.refArrayOps[(String, String)](`package`.this.getConfig(filePath))
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          250
+        </td>
+        <td>
+          1148
+          -
+          1157
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.net.URL.getPath
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          x$1.getPath()
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          252
+        </td>
+        <td>
+          1167
+          -
+          1176
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.example.utils.getConfig
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          `package`.this.getConfig(filePath)
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          255
+        </td>
+        <td>
+          1128
+          -
+          1177
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          scala.collection.immutable.List.flatMap
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          configResources.map[String, List[String]](((x$1: java.net.URL) =&gt; x$1.getPath()))(immutable.this.List.canBuildFrom[String]).flatMap[(String, String), List[(String, String)]]({
+  ((filePath: String) =&gt; scala.Predef.refArrayOps[(String, String)](`package`.this.getConfig(filePath)))
+})(immutable.this.List.canBuildFrom[(String, String)])
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          251
+        </td>
+        <td>
+          1147
+          -
+          1147
+        </td>
+        <td>
+          TypeApply
+        </td>
+        <td>
+          scala.collection.immutable.List.canBuildFrom
+        </td>
+        <td>
+          org.example.utils.filehelperspec
+        </td>
+        <td style="background: #AEF1AE">
+          immutable.this.List.canBuildFrom[String]
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

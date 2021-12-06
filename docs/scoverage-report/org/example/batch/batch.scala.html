@@ -1,0 +1,1847 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          org\example\batch\batch.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>package org.example
+</span>2 <span style=''>
+</span>3 <span style=''>import org.apache.spark.sql.functions._
+</span>4 <span style=''>import org.apache.spark.sql.{Column, DataFrame, SparkSession}
+</span>5 <span style=''>import org.example.utils.{CSVHelper, ParquetHelper}
+</span>6 <span style=''>
+</span>7 <span style=''>/**
+</span>8 <span style=''> * Spark batch package
+</span>9 <span style=''> * @author belgacea
+</span>10 <span style=''> * @groupname batch Batch
+</span>11 <span style=''> * @groupname aggregation Aggregation
+</span>12 <span style=''> */
+</span>13 <span style=''>package object batch {
+</span>14 <span style=''>
+</span>15 <span style=''>  /**
+</span>16 <span style=''>   * Batch toolbox for Spark helper functions
+</span>17 <span style=''>   *
+</span>18 <span style=''>   * @param spark [[SparkSession]] used to execute helper functions
+</span>19 <span style=''>   */
+</span>20 <span style=''>  case class BatchToolBox(spark: SparkSession) extends Serializable
+</span>21 <span style=''>    with CSVHelper
+</span>22 <span style=''>    with ParquetHelper {
+</span>23 <span style=''>
+</span>24 <span style=''>    /** Street Regex */
+</span>25 <span style=''>    val streetRegex = </span><span style='background: #AEF1AE'>&quot;(?:0-9*[ ])*((all)|(alle)|(allée)|(allee)|(allées)|(allees)|(alléee)|(av)|(ave)|(avenue)|(avenus)|(bassin)|(bassins)|(batiment)|(bâtiment)|(bd)|(bld)|(bdl)|(boulevard)|(carrefour)|(caserne)|(clairiere)|(centre)|(chemin)|(chaussée)|(chaussee)|(cité)|(cite)|(corniche)|(crs)|(cours)|(domaine)|(descente)|(ecart)|(espace)|(esplanade)|(faubourg)|(flèche)|(fleche)|(gare)|(grande)|(gymnase)|(hameau)|(halle)|(halles)|(hémicycle)|(hemicycle)|(hangar)|(hotel)|(impasse)|(ilot)|(jardin)|(jardins)|(lieu\\-dit)|(lotissement)|(mail)|(marché)|(marche)|(mairie)|(montée)|(montee)|(niveau)|(niveaux)|(palais)|(passage)|(parc)|(pl)|(place)|(placette)|(plaine)|(plateau)|(pont)|(port)|(promenade)|(parvis)|(quartier)|(quai)|(quais)|(résidence)|(residence)|(ruelle)|(rocade)|(rond\\-point)|(route)|(rue)|(rues)|(sentier)|(site)|(square)|(terrasse)|(stade)|(terre\\-plein)|(terre plein)|(traverse)|(tour)|(villa)|(village)|(zac))([ ]+[\\w '-]*)&quot;</span><span style=''>
+</span>26 <span style=''>
+</span>27 <span style=''>    protected val (address1Col, address2Col) = (&quot;adresse_1&quot;, &quot;adresse_2&quot;)
+</span>28 <span style=''>    protected val (street, streetCol1, streetCol2, accommodationCol) = (&quot;street&quot;, &quot;street1&quot;, &quot;street2&quot;, &quot;avec_hebergement&quot;)
+</span>29 <span style=''>    protected val streetCol1Epxr: Column = </span><span style='background: #AEF1AE'>regexp_extract(lower(col(address1Col)), streetRegex, 0)</span><span style=''>
+</span>30 <span style=''>    protected val streetCol2Epxr: Column = </span><span style='background: #AEF1AE'>regexp_extract(lower(col(address2Col)), streetRegex, 0)</span><span style=''>
+</span>31 <span style=''>    protected val streetColEpxr: Column = </span><span style='background: #AEF1AE'>getStreetColExpr(col(streetCol1), col(streetCol2))</span><span style=''>
+</span>32 <span style=''>
+</span>33 <span style=''>    /**
+</span>34 <span style=''>     * Street column fallback expression
+</span>35 <span style=''>     *
+</span>36 <span style=''>     * @param column1 Street column 1
+</span>37 <span style=''>     * @param column2 Street column 2
+</span>38 <span style=''>     * @return Street column
+</span>39 <span style=''>     */
+</span>40 <span style=''>    def getStreetColExpr(column1: Column, column2: Column): Column = {
+</span>41 <span style=''>      </span><span style='background: #AEF1AE'>when(column1.isNotNull and !(column1 &lt;=&gt; lit(&quot;&quot;)),
+</span>42 <span style=''></span><span style='background: #AEF1AE'>        column1)
+</span>43 <span style=''></span><span style='background: #AEF1AE'>        .otherwise(
+</span>44 <span style=''></span><span style='background: #AEF1AE'>          when(column2.isNotNull and !(column2 &lt;=&gt; lit(&quot;&quot;)),
+</span>45 <span style=''></span><span style='background: #AEF1AE'>            column2)
+</span>46 <span style=''></span><span style='background: #AEF1AE'>            // .otherwise(lit(&quot;Unknown&quot;))
+</span>47 <span style=''></span><span style='background: #AEF1AE'>            .otherwise(
+</span>48 <span style=''></span><span style='background: #AEF1AE'>              when(col(address1Col).isNotNull and !(col(address1Col) &lt;=&gt; lit(&quot;&quot;)),
+</span>49 <span style=''></span><span style='background: #AEF1AE'>                col(address1Col))
+</span>50 <span style=''></span><span style='background: #AEF1AE'>                .otherwise(
+</span>51 <span style=''></span><span style='background: #AEF1AE'>                  lit(&quot;Unknown&quot;))
+</span>52 <span style=''></span><span style='background: #AEF1AE'>            )
+</span>53 <span style=''></span><span style='background: #AEF1AE'>        )</span><span style=''>
+</span>54 <span style=''>    }
+</span>55 <span style=''>
+</span>56 <span style=''>    /**
+</span>57 <span style=''>     * Get max visitor by street (filtered by accommodation)
+</span>58 <span style=''>     *
+</span>59 <span style=''>     * @group aggregation
+</span>60 <span style=''>     * @param dataFrame Input dataframe
+</span>61 <span style=''>     * @param accommodation Accommodation filter value
+</span>62 <span style=''>     */
+</span>63 <span style=''>    def maxVisitorByStreet(dataFrame: DataFrame, accommodation: Boolean = true): DataFrame = {
+</span>64 <span style=''>      val accommodationValue = if (accommodation) </span><span style='background: #AEF1AE'>&quot;0&quot;</span><span style=''> else </span><span style='background: #AEF1AE'>&quot;N&quot;</span><span style=''>
+</span>65 <span style=''>      </span><span style='background: #AEF1AE'>dataFrame
+</span>66 <span style=''></span><span style='background: #AEF1AE'>        .filter(col(accommodationCol) &lt;=&gt; lit(accommodationValue)) // Filter by accommodation column
+</span>67 <span style=''></span><span style='background: #AEF1AE'>        .withColumn(streetCol1, streetCol1Epxr)
+</span>68 <span style=''></span><span style='background: #AEF1AE'>        .withColumn(streetCol2, streetCol2Epxr)
+</span>69 <span style=''></span><span style='background: #AEF1AE'>        .withColumn(street, streetColEpxr) // Consolidate street column
+</span>70 <span style=''></span><span style='background: #AEF1AE'>        .groupBy(street)
+</span>71 <span style=''></span><span style='background: #AEF1AE'>        .agg(sum(col(&quot;nb_visiteurs_max&quot;)).as(&quot;max_visitors&quot;))</span><span style=''> // Process max visitor by street
+</span>72 <span style=''>    }
+</span>73 <span style=''>
+</span>74 <span style=''>    /**
+</span>75 <span style=''>     * Get unmatched streets
+</span>76 <span style=''>     * @deprecated
+</span>77 <span style=''>     * @note 29k visitors seats hidden somewhere ¯\_(ツ)_/¯
+</span>78 <span style=''>     * but that's without mentioning the super massive black hole
+</span>79 <span style=''>     * which collapsed in rue jean samazeuihl
+</span>80 <span style=''>     *
+</span>81 <span style=''>     * @param dataFrame Input dataframe
+</span>82 <span style=''>     */
+</span>83 <span style=''>    def getUnknownStreet(dataFrame: DataFrame): DataFrame = {
+</span>84 <span style=''>      </span><span style='background: #AEF1AE'>dataFrame
+</span>85 <span style=''></span><span style='background: #AEF1AE'>        .withColumn(streetCol1, streetCol1Epxr)
+</span>86 <span style=''></span><span style='background: #AEF1AE'>        .withColumn(streetCol2, streetCol2Epxr)
+</span>87 <span style=''></span><span style='background: #AEF1AE'>        .withColumn(street, streetColEpxr) // Consolidate street column
+</span>88 <span style=''></span><span style='background: #AEF1AE'>        .filter(col(street) &lt;=&gt; lit(&quot;Unknown&quot;))
+</span>89 <span style=''></span><span style='background: #AEF1AE'>//        .filter(col(streetCol1).isNotNull)
+</span>90 <span style=''></span><span style='background: #AEF1AE'>        .select(
+</span>91 <span style=''></span><span style='background: #AEF1AE'>          col(&quot;nom_etablissement&quot;),
+</span>92 <span style=''></span><span style='background: #AEF1AE'>          col(&quot;adresse_1&quot;),
+</span>93 <span style=''></span><span style='background: #AEF1AE'>          col(&quot;adresse_2&quot;),
+</span>94 <span style=''></span><span style='background: #AEF1AE'>          col(&quot;nb_visiteurs_max&quot;),
+</span>95 <span style=''></span><span style='background: #AEF1AE'>        )</span><span style=''>
+</span>96 <span style=''>
+</span>97 <span style=''>    }
+</span>98 <span style=''>
+</span>99 <span style=''>  }
+</span>100 <span style=''>
+</span>101 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          25
+        </td>
+        <td>
+          30
+        </td>
+        <td>
+          629
+          -
+          1558
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;(?:0-9*[ ])*((all)|(alle)|(allée)|(allee)|(allées)|(allees)|(alléee)|(av)|(ave)|(avenue)|(avenus)|(bassin)|(bassins)|(batiment)|(bâtiment)|(bd)|(bld)|(bdl)|(boulevard)|(carrefour)|(caserne)|(clairiere)|(centre)|(chemin)|(chaussée)|(chaussee)|(cité)|(cite)|(corniche)|(crs)|(cours)|(domaine)|(descente)|(ecart)|(espace)|(esplanade)|(faubourg)|(flèche)|(fleche)|(gare)|(grande)|(gymnase)|(hameau)|(halle)|(halles)|(hémicycle)|(hemicycle)|(hangar)|(hotel)|(impasse)|(ilot)|(jardin)|(jardins)|(lieu\\-dit)|(lotissement)|(mail)|(marché)|(marche)|(mairie)|(montée)|(montee)|(niveau)|(niveaux)|(palais)|(passage)|(parc)|(pl)|(place)|(placette)|(plaine)|(plateau)|(pont)|(port)|(promenade)|(parvis)|(quartier)|(quai)|(quais)|(résidence)|(residence)|(ruelle)|(rocade)|(rond\\-point)|(route)|(rue)|(rues)|(sentier)|(site)|(square)|(terrasse)|(stade)|(terre\\-plein)|(terre plein)|(traverse)|(tour)|(villa)|(village)|(zac))([ ]+[\\w \'-]*)&quot;
+        </td>
+      </tr><tr>
+        <td>
+          27
+        </td>
+        <td>
+          32
+        </td>
+        <td>
+          1594
+          -
+          1594
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          scala.Tuple2._2
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.x$1._2
+        </td>
+      </tr><tr>
+        <td>
+          27
+        </td>
+        <td>
+          31
+        </td>
+        <td>
+          1581
+          -
+          1581
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          scala.Tuple2._1
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.x$1._1
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          35
+        </td>
+        <td>
+          1676
+          -
+          1676
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          scala.Tuple4._3
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.x$2._3
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          34
+        </td>
+        <td>
+          1664
+          -
+          1664
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          scala.Tuple4._2
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.x$2._2
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          36
+        </td>
+        <td>
+          1688
+          -
+          1688
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          scala.Tuple4._4
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.x$2._4
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          33
+        </td>
+        <td>
+          1656
+          -
+          1656
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          scala.Tuple4._1
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.x$2._1
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          41
+        </td>
+        <td>
+          1858
+          -
+          1859
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          0
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          38
+        </td>
+        <td>
+          1826
+          -
+          1842
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.col
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.col(BatchToolBox.this.address1Col)
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          40
+        </td>
+        <td>
+          1845
+          -
+          1856
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.streetRegex
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.streetRegex
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          37
+        </td>
+        <td>
+          1830
+          -
+          1841
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.address1Col
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.address1Col
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          39
+        </td>
+        <td>
+          1820
+          -
+          1843
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.lower
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.lower(org.apache.spark.sql.functions.col(BatchToolBox.this.address1Col))
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          42
+        </td>
+        <td>
+          1805
+          -
+          1860
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.regexp_extract
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.regexp_extract(org.apache.spark.sql.functions.lower(org.apache.spark.sql.functions.col(BatchToolBox.this.address1Col)), BatchToolBox.this.streetRegex, 0)
+        </td>
+      </tr><tr>
+        <td>
+          30
+        </td>
+        <td>
+          44
+        </td>
+        <td>
+          1926
+          -
+          1942
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.col
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.col(BatchToolBox.this.address2Col)
+        </td>
+      </tr><tr>
+        <td>
+          30
+        </td>
+        <td>
+          47
+        </td>
+        <td>
+          1958
+          -
+          1959
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          0
+        </td>
+      </tr><tr>
+        <td>
+          30
+        </td>
+        <td>
+          46
+        </td>
+        <td>
+          1945
+          -
+          1956
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.streetRegex
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.streetRegex
+        </td>
+      </tr><tr>
+        <td>
+          30
+        </td>
+        <td>
+          43
+        </td>
+        <td>
+          1930
+          -
+          1941
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.address2Col
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.address2Col
+        </td>
+      </tr><tr>
+        <td>
+          30
+        </td>
+        <td>
+          45
+        </td>
+        <td>
+          1920
+          -
+          1943
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.lower
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.lower(org.apache.spark.sql.functions.col(BatchToolBox.this.address2Col))
+        </td>
+      </tr><tr>
+        <td>
+          30
+        </td>
+        <td>
+          48
+        </td>
+        <td>
+          1905
+          -
+          1960
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.regexp_extract
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.regexp_extract(org.apache.spark.sql.functions.lower(org.apache.spark.sql.functions.col(BatchToolBox.this.address2Col)), BatchToolBox.this.streetRegex, 0)
+        </td>
+      </tr><tr>
+        <td>
+          31
+        </td>
+        <td>
+          50
+        </td>
+        <td>
+          2021
+          -
+          2036
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.col
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.col(BatchToolBox.this.streetCol1)
+        </td>
+      </tr><tr>
+        <td>
+          31
+        </td>
+        <td>
+          53
+        </td>
+        <td>
+          2004
+          -
+          2054
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.getStreetColExpr
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.getStreetColExpr(org.apache.spark.sql.functions.col(BatchToolBox.this.streetCol1), org.apache.spark.sql.functions.col(BatchToolBox.this.streetCol2))
+        </td>
+      </tr><tr>
+        <td>
+          31
+        </td>
+        <td>
+          49
+        </td>
+        <td>
+          2025
+          -
+          2035
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.streetCol1
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.streetCol1
+        </td>
+      </tr><tr>
+        <td>
+          31
+        </td>
+        <td>
+          52
+        </td>
+        <td>
+          2038
+          -
+          2053
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.col
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.col(BatchToolBox.this.streetCol2)
+        </td>
+      </tr><tr>
+        <td>
+          31
+        </td>
+        <td>
+          51
+        </td>
+        <td>
+          2042
+          -
+          2052
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.streetCol2
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.streetCol2
+        </td>
+      </tr><tr>
+        <td>
+          41
+        </td>
+        <td>
+          56
+        </td>
+        <td>
+          2317
+          -
+          2361
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.Column.and
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          column1.isNotNull.and(column1.&lt;=&gt;(org.apache.spark.sql.functions.lit(&quot;&quot;)).unary_!)
+        </td>
+      </tr><tr>
+        <td>
+          41
+        </td>
+        <td>
+          55
+        </td>
+        <td>
+          2339
+          -
+          2361
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.apache.spark.sql.Column.unary_!
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          column1.&lt;=&gt;(org.apache.spark.sql.functions.lit(&quot;&quot;)).unary_!
+        </td>
+      </tr><tr>
+        <td>
+          41
+        </td>
+        <td>
+          54
+        </td>
+        <td>
+          2353
+          -
+          2360
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.lit
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.lit(&quot;&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          43
+        </td>
+        <td>
+          70
+        </td>
+        <td>
+          2312
+          -
+          2762
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.Column.otherwise
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.when(column1.isNotNull.and(column1.&lt;=&gt;(org.apache.spark.sql.functions.lit(&quot;&quot;)).unary_!), column1).otherwise(org.apache.spark.sql.functions.when(column2.isNotNull.and(column2.&lt;=&gt;(org.apache.spark.sql.functions.lit(&quot;&quot;)).unary_!), column2).otherwise(org.apache.spark.sql.functions.when(org.apache.spark.sql.functions.col(BatchToolBox.this.address1Col).isNotNull.and(org.apache.spark.sql.functions.col(BatchToolBox.this.address1Col).&lt;=&gt;(org.apache.spark.sql.functions.lit(&quot;&quot;)).unary_!), org.apache.spark.sql.functions.col(BatchToolBox.this.address1Col)).otherwise(org.apache.spark.sql.functions.lit(&quot;Unknown&quot;))))
+        </td>
+      </tr><tr>
+        <td>
+          44
+        </td>
+        <td>
+          59
+        </td>
+        <td>
+          2418
+          -
+          2462
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.Column.and
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          column2.isNotNull.and(column2.&lt;=&gt;(org.apache.spark.sql.functions.lit(&quot;&quot;)).unary_!)
+        </td>
+      </tr><tr>
+        <td>
+          44
+        </td>
+        <td>
+          58
+        </td>
+        <td>
+          2440
+          -
+          2462
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.apache.spark.sql.Column.unary_!
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          column2.&lt;=&gt;(org.apache.spark.sql.functions.lit(&quot;&quot;)).unary_!
+        </td>
+      </tr><tr>
+        <td>
+          44
+        </td>
+        <td>
+          57
+        </td>
+        <td>
+          2454
+          -
+          2461
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.lit
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.lit(&quot;&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          47
+        </td>
+        <td>
+          69
+        </td>
+        <td>
+          2413
+          -
+          2751
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.Column.otherwise
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.when(column2.isNotNull.and(column2.&lt;=&gt;(org.apache.spark.sql.functions.lit(&quot;&quot;)).unary_!), column2).otherwise(org.apache.spark.sql.functions.when(org.apache.spark.sql.functions.col(BatchToolBox.this.address1Col).isNotNull.and(org.apache.spark.sql.functions.col(BatchToolBox.this.address1Col).&lt;=&gt;(org.apache.spark.sql.functions.lit(&quot;&quot;)).unary_!), org.apache.spark.sql.functions.col(BatchToolBox.this.address1Col)).otherwise(org.apache.spark.sql.functions.lit(&quot;Unknown&quot;)))
+        </td>
+      </tr><tr>
+        <td>
+          48
+        </td>
+        <td>
+          62
+        </td>
+        <td>
+          2628
+          -
+          2635
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.lit
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.lit(&quot;&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          48
+        </td>
+        <td>
+          64
+        </td>
+        <td>
+          2574
+          -
+          2636
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.Column.and
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.col(BatchToolBox.this.address1Col).isNotNull.and(org.apache.spark.sql.functions.col(BatchToolBox.this.address1Col).&lt;=&gt;(org.apache.spark.sql.functions.lit(&quot;&quot;)).unary_!)
+        </td>
+      </tr><tr>
+        <td>
+          48
+        </td>
+        <td>
+          61
+        </td>
+        <td>
+          2611
+          -
+          2622
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.address1Col
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.address1Col
+        </td>
+      </tr><tr>
+        <td>
+          48
+        </td>
+        <td>
+          60
+        </td>
+        <td>
+          2578
+          -
+          2589
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.address1Col
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.address1Col
+        </td>
+      </tr><tr>
+        <td>
+          48
+        </td>
+        <td>
+          63
+        </td>
+        <td>
+          2605
+          -
+          2636
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.apache.spark.sql.Column.unary_!
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.col(BatchToolBox.this.address1Col).&lt;=&gt;(org.apache.spark.sql.functions.lit(&quot;&quot;)).unary_!
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          65
+        </td>
+        <td>
+          2659
+          -
+          2670
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.address1Col
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.address1Col
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          66
+        </td>
+        <td>
+          2655
+          -
+          2671
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.col
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.col(BatchToolBox.this.address1Col)
+        </td>
+      </tr><tr>
+        <td>
+          50
+        </td>
+        <td>
+          68
+        </td>
+        <td>
+          2569
+          -
+          2736
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.Column.otherwise
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.when(org.apache.spark.sql.functions.col(BatchToolBox.this.address1Col).isNotNull.and(org.apache.spark.sql.functions.col(BatchToolBox.this.address1Col).&lt;=&gt;(org.apache.spark.sql.functions.lit(&quot;&quot;)).unary_!), org.apache.spark.sql.functions.col(BatchToolBox.this.address1Col)).otherwise(org.apache.spark.sql.functions.lit(&quot;Unknown&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          51
+        </td>
+        <td>
+          67
+        </td>
+        <td>
+          2721
+          -
+          2735
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.lit
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.lit(&quot;Unknown&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          64
+        </td>
+        <td>
+          71
+        </td>
+        <td>
+          3131
+          -
+          3134
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;0&quot;
+        </td>
+      </tr><tr>
+        <td>
+          64
+        </td>
+        <td>
+          74
+        </td>
+        <td>
+          3140
+          -
+          3143
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;N&quot;
+        </td>
+      </tr><tr>
+        <td>
+          64
+        </td>
+        <td>
+          73
+        </td>
+        <td>
+          3140
+          -
+          3143
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;N&quot;
+        </td>
+      </tr><tr>
+        <td>
+          64
+        </td>
+        <td>
+          72
+        </td>
+        <td>
+          3131
+          -
+          3134
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;0&quot;
+        </td>
+      </tr><tr>
+        <td>
+          66
+        </td>
+        <td>
+          77
+        </td>
+        <td>
+          3178
+          -
+          3227
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.Column.&lt;=&gt;
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.col(BatchToolBox.this.accommodationCol).&lt;=&gt;(org.apache.spark.sql.functions.lit(accommodationValue))
+        </td>
+      </tr><tr>
+        <td>
+          66
+        </td>
+        <td>
+          76
+        </td>
+        <td>
+          3204
+          -
+          3227
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.lit
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.lit(accommodationValue)
+        </td>
+      </tr><tr>
+        <td>
+          66
+        </td>
+        <td>
+          75
+        </td>
+        <td>
+          3182
+          -
+          3198
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.accommodationCol
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.accommodationCol
+        </td>
+      </tr><tr>
+        <td>
+          67
+        </td>
+        <td>
+          79
+        </td>
+        <td>
+          3296
+          -
+          3310
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.streetCol1Epxr
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.streetCol1Epxr
+        </td>
+      </tr><tr>
+        <td>
+          67
+        </td>
+        <td>
+          78
+        </td>
+        <td>
+          3284
+          -
+          3294
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.streetCol1
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.streetCol1
+        </td>
+      </tr><tr>
+        <td>
+          68
+        </td>
+        <td>
+          80
+        </td>
+        <td>
+          3333
+          -
+          3343
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.streetCol2
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.streetCol2
+        </td>
+      </tr><tr>
+        <td>
+          68
+        </td>
+        <td>
+          81
+        </td>
+        <td>
+          3345
+          -
+          3359
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.streetCol2Epxr
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.streetCol2Epxr
+        </td>
+      </tr><tr>
+        <td>
+          69
+        </td>
+        <td>
+          83
+        </td>
+        <td>
+          3390
+          -
+          3403
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.streetColEpxr
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.streetColEpxr
+        </td>
+      </tr><tr>
+        <td>
+          69
+        </td>
+        <td>
+          82
+        </td>
+        <td>
+          3382
+          -
+          3388
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.street
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.street
+        </td>
+      </tr><tr>
+        <td>
+          70
+        </td>
+        <td>
+          84
+        </td>
+        <td>
+          3452
+          -
+          3458
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.street
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.street
+        </td>
+      </tr><tr>
+        <td>
+          71
+        </td>
+        <td>
+          86
+        </td>
+        <td>
+          3151
+          -
+          3522
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.RelationalGroupedDataset.agg
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          dataFrame.filter(org.apache.spark.sql.functions.col(BatchToolBox.this.accommodationCol).&lt;=&gt;(org.apache.spark.sql.functions.lit(accommodationValue))).withColumn(BatchToolBox.this.streetCol1, BatchToolBox.this.streetCol1Epxr).withColumn(BatchToolBox.this.streetCol2, BatchToolBox.this.streetCol2Epxr).withColumn(BatchToolBox.this.street, BatchToolBox.this.streetColEpxr).groupBy(BatchToolBox.this.street).agg(org.apache.spark.sql.functions.sum(org.apache.spark.sql.functions.col(&quot;nb_visiteurs_max&quot;)).as(&quot;max_visitors&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          71
+        </td>
+        <td>
+          85
+        </td>
+        <td>
+          3474
+          -
+          3521
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.Column.as
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.sum(org.apache.spark.sql.functions.col(&quot;nb_visiteurs_max&quot;)).as(&quot;max_visitors&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          85
+        </td>
+        <td>
+          88
+        </td>
+        <td>
+          3969
+          -
+          3983
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.streetCol1Epxr
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.streetCol1Epxr
+        </td>
+      </tr><tr>
+        <td>
+          85
+        </td>
+        <td>
+          87
+        </td>
+        <td>
+          3957
+          -
+          3967
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.streetCol1
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.streetCol1
+        </td>
+      </tr><tr>
+        <td>
+          86
+        </td>
+        <td>
+          89
+        </td>
+        <td>
+          4006
+          -
+          4016
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.streetCol2
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.streetCol2
+        </td>
+      </tr><tr>
+        <td>
+          86
+        </td>
+        <td>
+          90
+        </td>
+        <td>
+          4018
+          -
+          4032
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.streetCol2Epxr
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.streetCol2Epxr
+        </td>
+      </tr><tr>
+        <td>
+          87
+        </td>
+        <td>
+          92
+        </td>
+        <td>
+          4063
+          -
+          4076
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.streetColEpxr
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.streetColEpxr
+        </td>
+      </tr><tr>
+        <td>
+          87
+        </td>
+        <td>
+          91
+        </td>
+        <td>
+          4055
+          -
+          4061
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.street
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.street
+        </td>
+      </tr><tr>
+        <td>
+          88
+        </td>
+        <td>
+          95
+        </td>
+        <td>
+          4124
+          -
+          4154
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.Column.&lt;=&gt;
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.col(BatchToolBox.this.street).&lt;=&gt;(org.apache.spark.sql.functions.lit(&quot;Unknown&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          88
+        </td>
+        <td>
+          94
+        </td>
+        <td>
+          4140
+          -
+          4154
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.lit
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.lit(&quot;Unknown&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          88
+        </td>
+        <td>
+          93
+        </td>
+        <td>
+          4128
+          -
+          4134
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.example.batch.BatchToolBox.street
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          BatchToolBox.this.street
+        </td>
+      </tr><tr>
+        <td>
+          90
+        </td>
+        <td>
+          100
+        </td>
+        <td>
+          3926
+          -
+          4361
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.Dataset.select
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          dataFrame.withColumn(BatchToolBox.this.streetCol1, BatchToolBox.this.streetCol1Epxr).withColumn(BatchToolBox.this.streetCol2, BatchToolBox.this.streetCol2Epxr).withColumn(BatchToolBox.this.street, BatchToolBox.this.streetColEpxr).filter(org.apache.spark.sql.functions.col(BatchToolBox.this.street).&lt;=&gt;(org.apache.spark.sql.functions.lit(&quot;Unknown&quot;))).select(org.apache.spark.sql.functions.col(&quot;nom_etablissement&quot;), org.apache.spark.sql.functions.col(&quot;adresse_1&quot;), org.apache.spark.sql.functions.col(&quot;adresse_2&quot;), org.apache.spark.sql.functions.col(&quot;nb_visiteurs_max&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          91
+        </td>
+        <td>
+          96
+        </td>
+        <td>
+          4231
+          -
+          4255
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.col
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.col(&quot;nom_etablissement&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          92
+        </td>
+        <td>
+          97
+        </td>
+        <td>
+          4268
+          -
+          4284
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.col
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.col(&quot;adresse_1&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          93
+        </td>
+        <td>
+          98
+        </td>
+        <td>
+          4297
+          -
+          4313
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.col
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.col(&quot;adresse_2&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          94
+        </td>
+        <td>
+          99
+        </td>
+        <td>
+          4326
+          -
+          4349
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.apache.spark.sql.functions.col
+        </td>
+        <td>
+          org.example.batch.batchtoolboxspec
+        </td>
+        <td style="background: #AEF1AE">
+          org.apache.spark.sql.functions.col(&quot;nb_visiteurs_max&quot;)
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>
